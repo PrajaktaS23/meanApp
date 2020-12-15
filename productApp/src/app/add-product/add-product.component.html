@@ -1,0 +1,75 @@
+
+<div class="card" style="margin-top:30px;">
+  <div class="card-body">
+    <form [formGroup]="angForm" novalidate>
+      <div class="form-group" style="display:flex; flex-direction:row-reverse;">
+        <button (click) = "addProduct(ProductName.value, Categories.value, Tags.value,Price.value,Quantity.value)" type="submit" class="btn btn-primary"
+        [disabled]="angForm.pristine || angForm.invalid" >
+          Add Product
+        </button>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Product Name</label>
+        <input type="text" class="form-control" 
+          formControlName="ProductName" 
+          #ProductName />
+      </div>
+      <div *ngIf="angForm.controls['ProductName'].invalid && (angForm.controls['ProductName'].dirty || angForm.controls['ProductName'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['ProductName'].errors.required">
+          Product Name is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4"> Categories </label>
+        <input class="form-control" rows = 7 cols = "5"
+        formControlName="Categories" 
+        #Categories/>
+      </div>
+      <div *ngIf="angForm.controls['Categories'].invalid && (angForm.controls['Categories'].dirty || angForm.controls['Categories'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['Categories'].errors.required">
+          Categories is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4"> Tags </label>
+        <input class="form-control" rows = 7 cols = "5"
+        formControlName="Tags" 
+        #Tags/>
+      </div>
+      <div *ngIf="angForm.controls['Tags'].invalid && (angForm.controls['Tags'].dirty || angForm.controls['Tags'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['Tags'].errors.required">
+          Tags required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">Price</label>
+        <input type="text" class="form-control" 
+          formControlName="Price" 
+          #Price
+        />
+      </div>
+      <div *ngIf="angForm.controls['Price'].invalid && (angForm.controls['Price'].dirty || angForm.controls['Price'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['Price'].errors.required">
+          Product Price is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-md-4">Quantity</label>
+        <input type="text" class="form-control" 
+          formControlName="Quantity" 
+          #Quantity
+        />
+      </div>
+      <div *ngIf="angForm.controls['Quantity'].invalid && (angForm.controls['Quantity'].dirty || angForm.controls['Quantity'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['Quantity'].errors.required">
+          Quantity is required.
+        </div>
+      </div>
+
+      
+    </form>
+  </div>
+</div>

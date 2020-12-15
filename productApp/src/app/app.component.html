@@ -1,0 +1,28 @@
+<nav class="navbar navbar-light bg-light" style="flex-direction:row-reverse">
+  <a class="navbar-brand" >
+    <img src="../assets/avtar.jpg" width="30" height="30" class="d-inline-block align-top" alt="" style="margin-left: 0;">
+    Charlie Adams
+  </a>
+</nav>
+
+<nav class="navbar navbar-dark bg-primary">
+  <div class="container-fluid">
+    <ul class="navbar-nav mr-auto" style="flex-direction:row; margin:0!important; display:contents; width:100%;">
+      <li class="nav-item">
+        <a routerLink="products" class="nav-link" style="color: white;font-size: 30px;" routerLinkActive="active">
+          Products
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="product/create" class="nav-link" routerLinkActive="active">
+          <button type="button" class="btn btn-light" style="float:right"> ADD NEW PRODUCT</button>
+        </a>
+      </li>
+
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
