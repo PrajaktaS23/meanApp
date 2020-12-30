@@ -8,13 +8,12 @@ import { ProductsService } from '../products.service';
   styleUrls: ['./listing.component.css']
 })
 export class ListingComponent implements OnInit {
-
+  
   products: any;
   constructor(private ps: ProductsService) { }
 
   ngOnInit() {
-    this.ps
-      .getProducts()
+    this.ps.getProducts()
       .subscribe((data: any) => {
         console.log(data);
         this.products = data;
@@ -23,7 +22,7 @@ export class ListingComponent implements OnInit {
     });
   }
 
-  updateStatus(id: any,ProductName: any, Categories: any, Tags: any, Price: any, Quantity: any, Status: any) {
+  updateStatus(id: any, Status: any) {
     //console.log(id + " " + status);
     Status = !Status;
     //console.log(Status);
@@ -33,7 +32,7 @@ export class ListingComponent implements OnInit {
         break;
       }
     }
-    this.ps.updateProducts(id,ProductName, Categories, Tags, Price, Quantity, Status);
+    this.ps.updateProducts(id, Status);
   }
 
 }

@@ -29,13 +29,8 @@ export class ProductsService {
            .get(`${this.uri}`);
   }
 
-  updateProducts(id: any,ProductName: any, Categories: any, Tags: any, Price: any, Quantity: any,Status: any) {
+  updateProducts(id: any,Status: any) {
     const obj = {
-      ProductName,
-      Categories,
-      Tags,
-      Price,
-      Quantity,
       Status
     };
     this.http.post(`${this.uri}/update/${id}`, obj)

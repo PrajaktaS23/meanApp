@@ -15,20 +15,20 @@
         <td>{{ i+1 }}</td>
         <td>{{ product.ProductName }}</td>
         <td>{{ product.Categories }}</td>
-        <td>${{ product.Price }}</td>
+        <td>{{ product.Price| currency:"USD"}}</td>
        
         <td *ngIf="product.Quantity<=10"><span class="quantity-dot" style="background-color: red;"></span> {{ product.Quantity }}</td>
         <td *ngIf="product.Quantity>10 && product.Quantity<50"><span class="quantity-dot" style="background-color: yellow;"></span> {{ product.Quantity }}</td>
         <td *ngIf="product.Quantity>=50"><span class="quantity-dot" style="background-color: green;"></span> {{ product.Quantity }}</td>
        
         <td *ngIf="product.Status == true; else elseBlock">
-          {{product.Price*product.Quantity}}
-          <i class="fa fa-check-circle-o" aria-hidden="true" style="color:limegreen; font-size:x-large" (click) ="updateStatus(product._id,product.ProductName,product.Categories,product.Tags,product.Price,product.Quantity,product.Status)"></i>
+      
+          <i class="fa fa-check-circle-o" aria-hidden="true" style="color:limegreen; font-size:x-large" (click) ="updateStatus(product._id,product.Status)"></i>
         </td>
         <ng-template #elseBlock>
           <td>
-            {{product.Price*product.Quantity}}
-            <i class="fa fa-times-circle-o" aria-hidden="true" style="color:red; font-size:x-large" (click) ="updateStatus(product._id,product.ProductName,product.Categories,product.Tags,product.Price,product.Quantity,product.Status)"></i>
+        
+            <i class="fa fa-times-circle-o" aria-hidden="true" style="color:red; font-size:x-large" (click) ="updateStatus(product._id,product.Status)"></i>
            </td>
         </ng-template>
       </tr>

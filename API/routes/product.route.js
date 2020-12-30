@@ -38,11 +38,7 @@ productRoutes.route('/update/:id').post(function (req, res) {
           //console.log("Record not found");
           res.status(404).send("Record not found");
       }else {
-      product.ProductName = req.body.ProductName;
-      product.Categories = req.body.Categories;
-      product.Tags = req.body.Tags;
-      product.price= req.body.price;
-      product.Quantity = req.body.Quantity;
+     
       product.Status = req.body.Status;
       product.save().then(product => {
           res.json('Update complete');
